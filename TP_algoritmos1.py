@@ -38,7 +38,7 @@ while div:
     
     i += 1
 """
-
+"""
 #3)
 
 nota = float(input("Ingrese la nota: "))
@@ -58,5 +58,25 @@ else:
     else:
         print("La calificacion es Muy insufiente")
         
+"""
 
-#Modificacion :D
+#4)
+
+materias = ["Matemática", "Lengua", "Física", "Química", "Historia"]
+notas = []
+i = 0
+borde = "-" * 30
+
+for materia in materias:
+    notas.append(input(f"Ingrese la nota de {materia}: "))
+
+
+print(borde)
+
+#ARREGLAR PRINT DE NOTAS
+for materia in materias:
+    print(f"| En {materia} has sacado: {notas[i]} |")
+    i += 1
+
+print(borde)
+
