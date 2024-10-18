@@ -59,7 +59,7 @@ else:
         print("La calificacion es Muy insufiente")
         
 """
-
+"""
 #4)
 
 materias = ["Matemática", "Lengua", "Física", "Química", "Historia"]
@@ -74,9 +74,26 @@ for materia in materias:
 print(borde)
 
 #ARREGLAR PRINT DE NOTAS
-for materia in materias:
-    print(f"| En {materia} has sacado: {notas[i]} |")
-    i += 1
+for materia, nota in zip(materias,notas):
+    print(f"| En {materia} has sacado: {nota} |")
 
 print(borde)
 
+"""
+
+"""
+#5)
+
+divisa = {'Euro' : 'EUR' , 'Dolar' : 'USD' , 'Yen' : 'YEN'}
+
+print("En que divisa quiere abonar?")
+
+print(divisa.keys())
+
+eleccion = input("Ingrese el nombre de la divisa elegida: ")
+
+eleccion = eleccion.capitalize()
+
+print(f"Divisa elegida: {divisa[eleccion]}")
+
+"""
