@@ -27,7 +27,7 @@ class Persona():
 
     def caminar(self):
         self.caminando = True
-        print(f"Soy {self.nombre} {self.apellido} y estoy caminando!")
+        print(f"Soy {self.nombre[::-1]} {self.apellido} y estoy caminando!")
     
     def detener(self):
         self.caminando = False
@@ -35,7 +35,7 @@ class Persona():
 
 
 juan = Persona()
-juan.nombre = input("Ingrese el nombre: ")[::-1]
+juan.nombre = input("Ingrese el nombre: ")
 juan.apellido = input("Ingrese el apellido: ")[::-1]
 juan.caminar()
 juan.detener()
