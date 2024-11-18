@@ -63,23 +63,25 @@ class Materia:
         self.estudiantes = []
     
 
-    def AgregarEstudiante(self, nombre=input("Ingrese el nombre del estudiante: "), edad=input("Ingrese la edad del estudiante: ")):
+    def AgregarEstudiante(self):
         
+        self.nombre = input("Ingrese el nombre del estudiante: ")
+        self.edad =input("Ingrese la edad del estudiante: ")
+
         i = len(self.estudiantes) + 1
-        self.nombreObjeto = f"estudiante{i}"
-        self.estudiante1 = Estudiante(nombre, edad)
+        nombreObjeto = f"estudiante{i}"
+        self.estudiantes.append( = Estudiante(self.nombre, self.edad))
     
     def MostrarEstudiantes(self):
         for i in self.estudiantes:
-            i.Informacion()
+            print(i)
 
+nomMateria = input("Ingrese el nombre de la materia: ")
+materia1 = Materia("mate")
 
-# nomMateria = input("Ingrese el nombre de la materia: ")
-# materia1 = Materia("mate")
+materia1.AgregarEstudiante()
 
-# materia1.AgregarEstudiante()
-
-# materia1.MostrarEstudiantes()
+materia1.MostrarEstudiantes()
 
 # -------------
 
