@@ -32,7 +32,6 @@ class Estudiante:
             self.notas.append(nota)
 
             print("Calificación agregada correctamente!")
-            print(f"cant notas : {len(self.notas)}")
         else:
             print("La calificaion indicada es inapropiada. Intente nuevamente y recuerde que las calificaciones son de 0 a 100!")
 
@@ -47,13 +46,13 @@ class Estudiante:
 
             self.promedio = sum(self.notas) / len(self.notas)
 
-            return f"El promedio de {self.nombre} es de {self.promedio}"
+            return self.promedio
 
     # Muestra en pantalla la información del estudiante (nombre, edad y promedio)
     def Informacion(self):
-        print(self.nombre)
-        print(self.edad)
-        print(self.Promedio())
+        print(f"Nombre: {self.nombre}")
+        print(f"Edad: {self.edad}")
+        print(f"Premedio: {self.Promedio()}")
 
 # Declaración de la clase materia, con constructor indicando el nombre de la materia y creando la lista de estudiantes vacia
 class Materia:
@@ -79,18 +78,37 @@ class Materia:
     def MostrarEstudiantes(self):
         for est in self.estudiantes:
             est.Informacion()
+    
+    def MejorPromedio(self):
+        n=0
+        for est in self.estudiantes:
+            
+            if est.Promedio() > n:
+                mejorProm = est
+                n = est.Promedio()
+
+        if mejorProm:
+            print(f"El estudiante con mejor promedio es: ")
+            mejorProm.Informacion()
+        
 
 
+separador ="-" * 45
 
-
-
+print(separador)
 nomMateria = input("Ingrese el nombre de la materia: ")
-materia1 = Materia("mate")
-
-n = int(input("Cuantos alumnos: "))
+materia1 = Materia(nomMateria)
+print(separador)
+n = int(input("Cuantos alumnos quiere agregar?: "))
+print(separador)
 
 for i in range(0,n):
+    print(separador)
     materia1.AgregarEstudiante()
+    print(separador)
 
-
+print(separador)
 materia1.MostrarEstudiantes()
+print(separador)
+materia1.MejorPromedio()
+print(separador)
