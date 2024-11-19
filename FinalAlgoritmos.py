@@ -17,17 +17,17 @@
 
 class Estudiante:
     # Definición del contructor para la creacion de alumnos
-    def __init__(self,nombre, edad, notas=None, promedio=None):
+    def __init__(self,nombre, edad, notas=None, promedio=0):
         self.nombre = nombre
         self.edad = edad
         self.notas = []
-        self.promedio = 0
-    
+
+
     # Metodos requeridos en la clase estudiantes:
 
     # Agrega la nota indicada al alumno, agregandolo a su list de notas
     def AgregarNota(self, nota):
-        
+
         if nota < 100 and nota > 0:
             self.notas.append(nota)
 
@@ -40,65 +40,57 @@ class Estudiante:
     def Promedio(self):
 
         if len(self.notas) < 0:
-            
-            print("El estudiante aun no tiene calificaciones! Introduzca las calificaciones y vuelva a intentarlo ")
+
+            return "El estudiante aun no tiene calificaciones! Introduzca las calificaciones y vuelva a intentarlo "
 
         else:
 
             self.promedio = sum(self.notas) / len(self.notas)
 
-            print(f"El promedio de {self.nombre} es de {self.promedio}")
+            return f"El promedio de {self.nombre} es de {self.promedio}"
 
     # Muestra en pantalla la información del estudiante (nombre, edad y promedio)
     def Informacion(self):
-
-        print(f"Nombre: {self.nombre}")
-        print(f"Edad: {self.edad}")
-        print(f"Promedio de notas: {self.Promedio()}")
+        print(self.nombre)
+        print(self.edad)
+        print(self.Promedio())
 
 # Declaración de la clase materia, con constructor indicando el nombre de la materia y creando la lista de estudiantes vacia
 class Materia:
     def __init__(self, nombre, estudiantes=None):
         self.nombre = nombre
         self.estudiantes = []
-    
+
 
     def AgregarEstudiante(self):
-        
-        self.nombre = input("Ingrese el nombre del estudiante: ")
-        self.edad =input("Ingrese la edad del estudiante: ")
 
-        i = len(self.estudiantes) + 1
-        nombreObjeto = f"estudiante{i}"
-        self.estudiantes.append( = Estudiante(self.nombre, self.edad))
-    
+        nombre = input("Ingrese el nombre del estudiante: ")
+        edad =input("Ingrese la edad del estudiante: ")
+
+        estudiante = Estudiante(nombre, edad)
+
+        self.estudiantes.append(estudiante)
+
+        n = int(input("Cuantas notas quiere ingresar: "))
+
+        for i in range(0,n):
+            estudiante.AgregarNota(float(input("Nota: ")))
+
     def MostrarEstudiantes(self):
-        for i in self.estudiantes:
-            print(i)
+        for est in self.estudiantes:
+            est.Informacion()
+
+
+
+
 
 nomMateria = input("Ingrese el nombre de la materia: ")
 materia1 = Materia("mate")
 
-materia1.AgregarEstudiante()
+n = int(input("Cuantos alumnos: "))
+
+for i in range(0,n):
+    materia1.AgregarEstudiante()
+
 
 materia1.MostrarEstudiantes()
-
-# -------------
-
-# nombre = input("Ingrese el nombre : ")
-# edad = input("Ingrese la edad: ")
-# estudiante1 = Estudiante(nombre, edad)
-
-# estudiante1.AgregarNota(nota=float(input("Ingrese la nota del alumno: ")))
-
-# estudiante1.AgregarNota(nota=float(input("Ingrese la nota del alumno: ")))
-
-# estudiante1.AgregarNota(nota=float(input("Ingrese la nota del alumno: ")))
-
-# print(estudiante1.notas)
-
-# estudiante1.Informacion()
-
-# estudiante1.Promedio()
-
-# estudiante1.Informacion()
